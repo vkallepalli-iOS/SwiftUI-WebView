@@ -6,13 +6,23 @@
 //
 
 import SwiftUI
+import WebKit
 
-struct WebViewContainerView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct WebViewContainer: UIViewRepresentable {
+    let url: URL
+
+    func makeUIView(context: Context) -> WKWebView {
+        // Set up the web view and configuration
+        let webView = WKWebView()
+        
+        // Load the URL
+        let request = URLRequest(url: URL(string: "https://github.com/login") ?? url)
+        webView.load(request)
+        
+        return webView
     }
-}
 
-#Preview {
-    WebViewContainerView()
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        // Update the view if needed, but nothing to update here as we're only loading a URL
+    }
 }

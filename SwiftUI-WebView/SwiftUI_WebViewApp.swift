@@ -15,3 +15,7 @@ struct SwiftUI_WebViewApp: App {
         }
     }
 }
+
+#Preview {
+    ContentView()
+}
